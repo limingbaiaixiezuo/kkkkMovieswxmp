@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/homePage/homePage",
+    "pages/popularMovies/popularMovies",
+    "pages/filmDetails/filmDetails",
+    "pages/filmReviewList/filmReviewList",
+    "pages/filmReviewDetails/filmReviewsDetails",
+    "pages/editFilmReview/editFilmReview",
+    "pages/filmReviewPreview/filmReviewPreview",
+    "pages/reviewActionPage/reviewActionPage",
+    "pages/user/user",
+    "custom-tab-bar/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/homePage/homePage",
+        "text": "text",
+        "iconPath": "images/thumb.png",
+        "selectedIconPath": "images/thumb.png"
+      },
+      {
+        "pagePath": "pages/homePage/homePage",
+        "text": "text",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom"
+  }
+}

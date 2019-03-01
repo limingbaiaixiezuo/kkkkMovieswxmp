@@ -1,0 +1,88 @@
+{
+	"client": "client/",
+	"svr": "server/",
+	"miniprogramRoot": "client/",
+	"qcloudRoot": "server/",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wxc05b9e44e616290e",
+	"projectname": "%E7%9C%8B%E7%9C%8B%E4%BE%83%E4%BE%83%E7%94%B5%E5%BD%B1%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 7,
+			"list": [
+				{
+					"id": -1,
+					"name": "热门电影页面",
+					"pathName": "pages/popularMovies/popularMovies",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "电影详情页面",
+					"pathName": "pages/filmDetails/filmDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "影评列表页面",
+					"pathName": "pages/filmReviewList/filmReviewList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "影评详情页面",
+					"pathName": "pages/filmReviewDetails/filmReviewsDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑影评页面",
+					"pathName": "pages/editFilmReview/editFilmReview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "影评预览页面",
+					"pathName": "pages/filmReviewPreview/filmReviewPreview",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "主页",
+					"pathName": "pages/homePage/homePage",
+					"scene": null
+				}
+			]
+		}
+	}
+}

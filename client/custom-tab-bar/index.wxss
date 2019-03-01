@@ -1,0 +1,95 @@
+/* client/custom-tab-bar/index.wxss */
+.tab-bar{
+  height: 130rpx;
+  /* background:yellow; */
+  display: flex;
+  border-top: 1px solid rgba(238, 232, 232, 0.9);
+}
+.tab-bar-left {
+   /* background-color: rgba(231, 16, 16, 0.33); */
+   margin-top:40rpx;
+   margin-left:100rpx;
+   width: 150rpx;
+   height: 50rpx; 
+}
+ .tab-bar-right {
+   /* background-color: rgba(231, 16, 16, 0.33); */
+   margin-top:40rpx;
+   margin-left:250rpx;
+   width: 150rpx;
+   height: 50rpx;
+ }
+.tab-bar-item-det{
+  /* flex: 1; */
+  /* text-align: center; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+.tab-bar-item-det-icon{
+  width: 100rpx;
+  height: 50rpx; 
+}
+.tab-bar-item-det-det{
+  width: 150rpx;
+  height: 50rpx;
+  margin-left: 10rpx; 
+  margin-top:10rpx;
+  color:rgb(167, 194, 194);
+}
+/* .tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background:yellow;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+tab-bar-item-det{
+  position:relative;
+  display:inline;
+}
+.tab-bar-item-det-user{
+  display:inline-block;
+} */
+
+/* .tab-bar-item cover-image {
+  width: 27px;
+  height: 27px;
+}
+
+.tab-bar-item cover-view {
+  font-size: 10px;
+} */
+/* .tab-bar-left {
+  background-color: rgba(231, 16, 16, 0.33);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100rpx;
+  height: 100rpx;
+  transform: scaleY(0.5);
+} */
+/* .tab-bar-right {
+  background-color: rgba(241, 19, 19, 0.33);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100rpx;
+  height: 100rpx;
+  transform: scaleY(0.5);
+}
+.tab-bar-item {
+  background-color: rgb(231, 16, 16);
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */

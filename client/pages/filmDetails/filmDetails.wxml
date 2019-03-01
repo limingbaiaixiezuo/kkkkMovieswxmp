@@ -1,0 +1,30 @@
+<!--pages/filmDetails/filmDetails.wxml-->
+<view class="area">
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBackHome'></image>
+    <view class="title">电影详情</view>
+</view> 
+<view class="writeReviewTopArea" wx:if="{{isWriteFilmReview}}"></view>
+<view class="displayArea">
+    <view class='filmDetailsTitleAndDescription'>
+        <cover-image class="filmDetailsImage" src="{{filmDetailsImage}}"></cover-image>
+        <view class= 'filmDetailsTitle'><view class="filmDetailsTitle-des">{{filmDetailsTitle}}</view></view>
+        <text class= 'filmDetailsDescription'>{{filmDetailsDescription}}</text>
+        <view class="buttonArea">
+          <view class="buttonArea-left" bindtap='onTapCheckFilmReview'>
+            <image class='buttonArea-left-icon' src="/images/eye.png"></image>
+            <view class='buttonArea-left-des' >查看影评</view>
+          </view>
+          <view class="buttonArea-right" bindtap='onTapToAddFilmReview'>
+            <image class='buttonArea-right-icon' src="/images/chat.png"></image>
+            <view class='buttonArea-right-des' >添加影评</view>
+          </view>
+        </view>
+    </view>
+    <view class="writeReviewBottomArea" wx:if="{{isWriteFilmReview}}">
+        <view class="word-btn"><view class="word-btn-des" catchtap='onTapReadyToEditReview' id="word">文字</view></view>
+        <view class="record-btn"><view class="record-btn-des" catchtap='onTapReadyToEditReview' id="record">音频</view></view>
+        <view class="cancel-btn" bindtap='onTapCancelWriteFilmReview'><view class="cancel-btn-des">取消</view></view>
+    </view>
+</view>
+</view>

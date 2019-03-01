@@ -1,0 +1,66 @@
+/* pages/homePage/homePage.wxss */
+.titleArea{
+  display:flex;
+  /* background-color: red; */
+  width:750rpx;
+  height:150rpx;
+}
+.title{
+  margin-left:230rpx;
+  margin-top:55rpx;
+  font-size: 45rpx;
+}
+.displayArea{
+  display:block;
+  /* margin-top:0rpx; */
+  height:1054rpx;
+  width:750rpx;
+  background-color: rgb(245, 245, 245);
+}
+.filmInfo{
+  /* background-color: yellow; */
+  height:850rpx;
+  width:550rpx;
+  /* margin-top:0rpx; */
+  margin-left:100rpx;
+}
+.filmPoster{
+  width:550rpx;
+  height:750rpx;
+  /* margin-top:20rpx; */
+  /* margin-left:100rpx; */
+}
+.filmName{
+margin-top:15rpx;
+/* margin-left:40rpx; */
+/* justify-content: center; */
+/* margin: aoto 0rpx; */
+font-size: 50rpx;
+font-weight:500rpx;
+/* background-color: red; */
+}
+.filmName-des{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.recommendInfo{
+  display:flex;
+  height:100rpx;
+  /* background-color: red; */
+}
+.recommendInfo-headImage{
+  width:80rpx;
+  height:80rpx;
+  margin-left:120rpx;
+  margin-top:10rpx;
+  border-radius: 50%;
+}
+.recommendInfo-name{
+  margin-top:25rpx;
+  /* margin-left: 10rpx; */
+}
+.recommendInfo-content{
+  margin-top:25rpx;
+}

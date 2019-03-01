@@ -1,0 +1,33 @@
+<!--pages/filmReviewPreview/filmReviewPreview.wxml-->
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBack'></image>
+    <view class="title">影评预览</view>
+</view> 
+<view class="displayArea">
+    <view class='filmDetailsIconAndTitleAndDescription'>
+        <cover-image class="filmDetailsImage" src="{{reviewPreviewFirmImage}}"></cover-image>
+        <view class= 'filmDetailsTitle'>{{reviewPreviewFirmTitle}}</view>
+        <view class="filmReviewDetailsIconAndTitle">
+          <image class="filmReviewDetailsIcon" src="{{userInfo.avatarUrl}}"></image>
+      　  <view class= 'filmReviewDetailsName'>{{userInfo.nickName}}的影评</view>
+        </view>
+        <view class= 'filmReviewDetailsContent' wx:if="{{whatKindReview =='word'}}">{{reviewPreviewUserWordComment}}</view>
+        <view class= 'filmReviewVoicePreview' wx:if="{{whatKindReview =='record'}}">
+            <view class="playRecordbuttonArea">
+              <image class='playRecordbuttonArea-icon' catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" src="/images/playvoicereview.png"></image>
+              <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+            </view>
+        </view>
+        <view class="buttonArea">
+          <view class="buttonArea-left">
+            <image class='buttonArea-left-icon' src="/images/reagain.png"></image>
+            <view class='buttonArea-left-des' catchtap='onTapBack'>重新编辑</view>
+          </view>
+          <view class="buttonArea-right">
+            <image class='buttonArea-right-icon' src="/images/release.png"></image>
+            <view class='buttonArea-right-des' catchtap='onTapPubllishReview'>发布影评</view>
+          </view>
+        </view>
+    </view>
+</view>
+

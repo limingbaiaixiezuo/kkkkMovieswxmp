@@ -1,0 +1,25 @@
+<!--pages/filmReviewList/filmReviewList.wxml-->
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBack'></image>
+    <view class="title">影评列表</view>
+</view> 
+<view class="displayArea">
+   <scroll-view scroll-y>
+      <view class='filmReviewListArea'>
+        <view class='filmReviewList' wx:key="{{item}}" wx:for="{{thisFilmReviewList}}">
+         <view class='filmReviewListIconAndtName' catchtap="onTapToReviewDetails" id="{{item.review_id}}">
+             <image class="filmReviewListIcon" src="{{item.avatar}}"></image>
+             <view class= 'filmReviewListName'>{{item.username}}</view>
+         </view>
+         <view class= 'filmReviewListContent' wx:if="{{item.content}}">{{item.content}}</view>
+         <view class= 'filmReviewListContent' wx:if="{{item.voiceReview}}">
+             <view class="playRecordbuttonArea">
+                <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" id="{{item.review_id}}"></image>
+                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+            </view>
+         </view>
+        </view>
+      </view>
+</scroll-view>
+</view>
+<navigator url="/pages/homePage/homePage" open-type="switchTab" class="returnHome"><view class="returnHome-style">回到首页</view></navigator>

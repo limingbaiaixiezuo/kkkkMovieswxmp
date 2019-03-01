@@ -1,0 +1,48 @@
+<!--pages/filmReviewDetails/filmReviewsDetails.wxml-->
+<view class="area">
+<!-- <view class="writeReviewTopArea" wx:if="{{isWriteFilmReview}}"> -->
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBack'></image>
+    <view class="title">影评详情</view>
+</view> 
+<view class="writeReviewTopArea" wx:if="{{isWriteFilmReview}}"></view>
+<view class="displayArea">
+    <view class='filmDetailsIconAndTitleAndDescription'>
+        <image class="filmDetailsImage" src="{{popularMoviesDetails.image}}"></image>
+        <view class= 'filmDetailsTitle'><view class="title-des">{{popularMoviesDetails.title}}</view></view>
+        <view class="filmReviewDetailsIconAndTitle">
+          <image class="filmReviewDetailsIcon" src="{{filmReviewDetails.avatar}}"></image>
+      　  <view class= 'filmReviewDetailsName'>{{filmReviewDetails.username}}的影评</view>
+        </view>
+        <view class= 'filmReviewDetailsContent' wx:if="{{filmReviewDetails.content}}">{{filmReviewDetails.content}}</view>
+        <view class= 'filmReviewDetailsContent' wx:if="{{filmReviewDetails.voiceReview}}">
+            <view class="playRecordbuttonArea">
+                <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview"></image>
+                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+            </view>
+        </view>
+        <view class="buttonArea">
+          <view class="buttonArea-left" bindtap='onTapCollectReview'>
+            <image class='buttonArea-left-icon' src="/images/star.png"></image>
+            <view class='buttonArea-left-des' wx:if="{{!wasCollectedReview}}">收藏影评</view>
+            <view class='buttonArea-left-des-grey' wx:if="{{wasCollectedReview}}">已经收藏</view>
+          </view>
+          <view class="buttonArea-right" bindtap='onTapWriteFilmReview'>
+            <image class='buttonArea-right-icon' src="/images/pen.png"></image>
+            <view class='buttonArea-right-des'>写影评</view>
+          </view>
+        </view>
+    </view>
+    <view class="writeReviewBottomArea" wx:if="{{isWriteFilmReview}}">
+        <view class="word-btn"><view class="word-btn-des" catchtap='onTapReadyToEditReview' id="word">文字</view></view>
+        <view class="record-btn"><view class="record-btn-des" catchtap='onTapReadyToEditReview' id="record">音频</view></view>
+        <view class="cancel-btn" bindtap='onTapCancelWriteFilmReview'><view class="cancel-btn-des">取消</view></view>
+    </view>
+</view>
+</view>
+<!-- <view class="writeReviewBottomArea" wx:if="{{isWriteFilmReview}}">
+  <view class="word-btn">文字</view>
+  <view class="record-btn">音频</view>
+  <view class="cancel-btn">取消</view>
+</view>  -->
+<!-- </view> -->

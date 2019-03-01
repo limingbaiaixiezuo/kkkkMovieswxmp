@@ -1,0 +1,15 @@
+<!--custom-tab-bar/index.wxml-->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-left" catchtap='onTapToHot'>
+      <cover-view class="tab-bar-item-det">
+          <cover-image class="tab-bar-item-det-icon" src="/images/thumb.png"></cover-image>
+          <cover-view class="tab-bar-item-det-det">热门</cover-view>
+      </cover-view>
+  </cover-view>
+  <cover-view class="tab-bar-right" catchtap='onTapToOurs'>
+     <cover-view class="tab-bar-item-det" > 
+         <cover-image class="tab-bar-item-det-icon" src="/images/user.png"></cover-image>
+         <cover-view class="tab-bar-item-det-det">我的</cover-view>
+     </cover-view>
+  </cover-view>
+</cover-view>

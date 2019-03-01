@@ -1,0 +1,80 @@
+<!--pages/user/user.wxml-->
+<view class="area">
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBackHome'></image>
+    <view class="title">我的</view>
+</view> 
+<view class="loginArea" wx:if="{{!userInfo}}">
+<!-- <image class="bg" src="/images/bg.png"></image> -->
+<view >
+    <view class="unlogin-card">
+        <view class="unlogin-head"></view>
+        <view class="unlogin-info">
+            <view class="unlogin-text">未登录</view>
+            <view class="unlogin-tips">点击微信登录后可评价电影</view>
+        </view>
+    </view>
+<button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+<button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+
+<view class="unLoginDisplayArea"></view>
+</view>
+<view class="displayArea" wx:if="{{userInfo}}">
+   <view class="user-card">
+       <view class="user-info">
+           <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+           <view class="user-name">{{userInfo.nickName}}</view>
+       </view>
+   </view> 
+   <view class="collect-des" wx:if="{{isCollectOrRelease}}">
+     <view class="collect-des-word" catchtap='collectOrRelease'>收藏的影评</view>
+     <image class="collect-des-icon" src="/images/correct.png"></image>
+   </view>
+   <view class="collect-des" wx:if="{{!isCollectOrRelease}}">
+     <view class="collect-des-word" catchtap='collectOrRelease'>已发布的影评</view>
+     <image class="collect-des-icon" src="/images/correct.png"></image>
+   </view>
+   <scroll-view scroll-y>
+      <view class='collectMoviesListArea' wx:if="{{isCollectOrRelease}}">
+        <view class='collectMoviesList' wx:key="{{item}}" wx:for="{{loginUserCollectedReviewInfo}}">
+        <image class="collectMoviesImage" src="{{item.image}}" catchtap="onTapToReviewDetails" id="{{item.review_id}}"></image>
+        <view class='collectMoviesInfo' catchtap="onTapToReviewDetails" id="{{item.review_id}}">
+           <view class= 'collectMoviesTitle' catchtap="onTapToReviewDetails" id="{{item.review_id}}">{{item.title}}</view>
+           <view class= 'collectMoviesReview' wx:if="{{item.content}}" catchtap="onTapToReviewDetails" id="{{item.review_id}}">{{item.content}}</view>
+           <view class= 'collectMoviesReview' wx:if="{{item.voiceReview}}">
+               <view class="playRecordbuttonArea">
+                <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" id="{{item.review_id}}"></image>
+                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+              </view>
+           </view>
+           <view class="collectMoviesReviewInfo" catchtap="onTapToReviewDetails" id="{{item.review_id}}">
+             <image class= 'collectMoviesReviewIcon' src="{{item.avatar}}"></image>
+             <view class= 'collectMoviesReviewName'>{{item.username}}</view>
+        </view>   
+        </view>
+        </view>
+      </view>
+      <view class='collectMoviesListArea' wx:if="{{!isCollectOrRelease}}">
+        <view class='collectMoviesList' wx:key="{{item}}" wx:for="{{loginUserReleasedReviewInfo}}">
+        <image class="collectMoviesImage" src="{{item.image}}" catchtap="onTapToReviewDetails" id="{{item.review_id}}"></image>
+        <view class='collectMoviesInfo' catchtap="onTapToReviewDetails" id="{{item.review_id}}">
+           <view class= 'collectMoviesTitle'>{{item.title}}</view>
+           <view class= 'collectMoviesReview' wx:if="{{item.content}}">{{item.content}}</view>
+           <view class= 'collectMoviesReview' wx:if="{{item.voiceReview}}">
+               <view class="playRecordbuttonArea">
+                <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" id="{{item.review_id}}"></image>
+                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+              </view>
+           </view>
+           <view class="collectMoviesReviewInfo" catchtap="onTapToReviewDetails" id="{{item.review_id}}">
+             <image class= 'collectMoviesReviewIcon' src="{{item.avatar}}"></image>
+             <view class= 'collectMoviesReviewName'>{{item.username}}</view>
+        </view>   
+        </view>
+        </view>
+      </view>
+</scroll-view>
+</view>
+<navigator url="/pages/homePage/homePage" open-type="switchTab" class="returnHome"><view class="returnHome-syle">回到首页</view></navigator>
+</view>

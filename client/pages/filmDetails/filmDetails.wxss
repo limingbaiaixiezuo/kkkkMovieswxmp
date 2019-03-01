@@ -1,0 +1,187 @@
+/* pages/filmDetails/filmDetails.wxss */
+.area{
+  width:750rpx;
+  height:1324rpx;
+  display:block;
+  /* background-color: rgb(199, 206, 198); */
+  
+}
+.writeReviewTopArea{
+  top:0rpx;
+  left:0rpx;
+  width:750rpx;
+  height:1504rpx;
+  background-color: rgb(150, 145, 145);
+  z-index:1;
+  position: absolute;
+  /* display:block; */
+  opacity:0.45;
+
+}
+.titleArea{
+  display:flex;
+  /* background-color: red; */
+  width:750rpx;
+  height:130rpx;
+  /* opacity: 0.85; */
+}
+.title{
+  margin-left:180rpx;
+  margin-top:50rpx;
+  font-size: 50rpx;
+  font-weight: 550;
+}
+.backHome{
+  width:45rpx;
+  height:45rpx;
+  margin-left:20rpx;
+  margin-top:60rpx;
+  
+}
+.displayArea{
+  background-color: rgb(245, 245, 245);
+  height:1204rpx;
+  width:750rpx;
+  display:flex;
+}
+
+.filmDetailsTitleAndDescription{
+  background-color: white;
+  width:650rpx;
+  height:1000rpx;
+  margin-top:130rpx;
+  margin-left:50rpx;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.filmDetailsImage{
+  width:250rpx;
+  height:338rpx;
+  margin-left:200rpx;
+  margin-top:-70rpx;
+
+}
+.filmDetailsTitle{
+  width:450rpx;
+  margin-top:50rpx;
+  margin-left:100rpx;
+  font-size: 45rpx;
+  font-weight: 500;
+  /* background-color: red; */
+}
+.filmDetailsTitle-des{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.filmDetailsDescription{
+  width:500rpx;
+  height:400rpx;
+  margin-top:35rpx;
+  margin-left:80rpx;
+  font-size:35rpx;
+  opacity: 0.85;
+  font-weight: 400;
+  display:flex;
+  overflow: scroll;
+}
+.buttonArea{
+  /* background-color: red; */
+  width:560rpx;
+  height:150rpx;
+  margin-left:40rpx;
+  margin-top:150rpx;
+  position: absolute;
+  display:flex;
+  bottom:55rpx;
+}
+.buttonArea-left{
+  width:240rpx;
+  height:80rpx;
+  margin-top:30rpx;
+  margin-left:0rpx;
+  /* background-color: yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.buttonArea-left-icon{
+  width:40rpx;
+  height:40rpx;
+  margin-top:15rpx;
+  margin-left:20rpx;
+}
+.buttonArea-left-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:15rpx;
+  margin-left:20rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.buttonArea-right{
+  width:240rpx;
+  height:80rpx;
+  margin-top:30rpx;
+  margin-left:50rpx;
+  /* background-color: yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.buttonArea-right-icon{
+  width:40rpx;
+  height:40rpx;
+  margin-top:20rpx;
+  margin-left:20rpx;
+}
+.buttonArea-right-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:15rpx;
+  margin-left:20rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.writeReviewBottomArea{
+  /* display: block; */
+  width:750rpx;
+  height:300rpx;
+  position: absolute;
+  background-color:white;
+  z-index: 1;
+  left: 0rpx;
+  bottom: 0rpx;
+  /* opacity: 0.25; */
+}
+.word-btn{
+  width:750rpx;
+  height:90rpx;
+  /* background-color:rgb(209, 49, 49); */
+  border-bottom: 1px solid rgba(238, 232, 232,1);
+}
+.word-btn-des{
+  margin-left:300rpx;
+  margin-top:10rpx;
+  font-size: 50rpx;
+}
+.record-btn{
+  width:750rpx;
+  height:90rpx;
+  /* background-color:rgb(209, 49, 49); */
+  border-bottom: 2px solid rgba(238, 232, 232,1);
+}
+.record-btn-des{
+  margin-left:300rpx;
+  margin-top:10rpx;
+  font-size: 50rpx;
+}
+.cancel-btn{
+  width:750rpx;
+  height:90rpx;
+  /* background-color:rgb(209, 49, 49); */
+  border-top: 3px solid rgba(238, 232, 232,1);
+}
+.cancel-btn-des{
+  margin-left:300rpx;
+  margin-top:10rpx;
+  font-size: 50rpx;
+}

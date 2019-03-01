@@ -1,0 +1,29 @@
+<!--pages/editFilmReview/editFilmReview.wxml-->
+<!--pages/filmReviewDetails/filmReviewsDetails.wxml-->
+<view class="area">
+<view class="titleArea">
+    <image class='backHome' src="/images/back.png" catchtap='onTapBack'></image>
+    <view class="title">编辑影评</view>
+</view> 
+<view class="displayArea">
+    <view class='editFilmReview'>
+        <cover-image class="editFilmReviewImage" src="{{wasEditedFilmReviewFilmImage}}"></cover-image>
+        <view class= 'editFilmReviewTitle'>{{wasEditedFilmReviewFilmTitle}}</view>
+        <view class="editReviewArea-word" wx:if="{{whatKindEdit=='word'}}">
+          <textarea class='comment' placeholder-class='comment-placeholder' placeholder='请输入你的影评内容...' auto-focus maxlength='255' bindinput='onInput'></textarea>
+        </view>
+          <view class="recordbuttonArea" wx:if="{{whatKindEdit=='record'&&!voiceFilmReview}}" catchtouchstart="onTouchStartRecord" catchtouchend="onTouchStopRecord">
+            <image class='recordbuttonArea-icon' src="/images/mic.png"></image>
+            <view class='recordbuttonArea-des' >录音</view>
+          </view>
+          <view class="playRecordbuttonArea" wx:if="{{voiceFilmReview}}">
+            <image class='playRecordbuttonArea-icon' catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" src="/images/playvoicereview.png"></image>
+            <view class='playRecordbuttonArea-des' >{{timeOfAudio}}S</view>
+          </view>
+    </view>
+    
+</view>
+   <view class="completeButton" catchtap='onTapToPreview'>
+      <view class="completeButton-des">完成</view>
+   </view>
+</view>

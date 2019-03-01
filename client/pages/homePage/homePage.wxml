@@ -1,0 +1,26 @@
+<!--pages/homePage/homePage.wxml-->
+<view class="titleArea">
+    <view class="title">看看侃侃电影</view>
+</view>
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+        <view class="unlogin-text">未登录</view>
+        <view class="unlogin-tips">点击微信登录后可方便购物</view>
+    </view>
+  </view>
+  <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>  
+<view class="displayArea" wx:if="{{userInfo}}">
+　　<view class="filmInfo" catchtap='onTapBackToDetails'>
+       <image class="filmPoster" src="{{getRandomPopularMovie.image}}"></image>
+       <view class="filmName"><view class="filmName-des">{{getRandomPopularMovie.title}}</view></view>
+    </view>
+    <view class="recommendInfo">
+        <image class="recommendInfo-headImage" src="{{randomFilmReviewDetails.avatar}}"></image>
+        <view class="recommendInfo-name">"{{randomFilmReviewDetails.username}}"</view>
+        <view class="recommendInfo-content">给你推荐了一部电影</view>
+    </view>
+</view>

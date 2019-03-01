@@ -1,0 +1,151 @@
+/* pages/editFilmReview/editFilmReview.wxss */
+.area{
+  display:block;
+  width:750rpx;
+  height:1324rpx;
+}
+.titleArea{
+  display:flex;
+  /* background-color: red; */
+  width:750rpx;
+  height:130rpx;
+  /* opacity: 0.85; */
+}
+.title{
+  margin-left:180rpx;
+  margin-top:50rpx;
+  font-size: 50rpx;
+  font-weight: 550;
+}
+.backHome{
+  width:45rpx;
+  height:45rpx;
+  margin-left:20rpx;
+  margin-top:60rpx;
+  
+}
+.displayArea{
+  background-color: rgb(245, 245, 245);
+  height:1080rpx;
+  width:750rpx;
+  display:flex;
+}
+
+.editFilmReview{
+  background-color: white;
+  width:650rpx;
+  height:880rpx;
+  margin-top:130rpx;
+  margin-left:50rpx;
+  border: 1px solid rgba(238, 232, 232,1);
+  display:block;
+}
+.editFilmReviewImage{
+  width:250rpx;
+  height:338rpx;
+  margin-left:200rpx;
+  margin-top:-70rpx;
+
+}
+.editFilmReviewTitle{
+  width:450rpx;
+  margin-top:50rpx;
+  margin-left:90rpx;
+  font-size: 45rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.editReviewArea{
+  font-size:40rpx;
+  opacity: 0.95;
+  font-weight: 400;
+  margin-top:40rpx;
+}
+.comment{
+  /* background-color: yellow; */
+  width:400rpx;
+  margin-left:110rpx;
+  height:200rpx;
+}
+.filmReviewDetailsIconAndTitle{
+     display:flex;
+     /* background-color: red; */
+}
+
+.editReviewArea-word{
+  font-size:40rpx;
+  opacity: 0.85;
+  font-weight: 400;
+  margin-top:30rpx;
+}
+
+.recordbuttonArea{
+  width:300rpx;
+  height:100rpx;
+  margin-top:150rpx;
+  margin-left:170rpx;
+  /* text-align:center; */
+  /* align-items:center; */
+  /* justify-content: center; */
+  /* margin: auto; */
+  /* background-color: yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.recordbuttonArea-icon{
+  width:80rpx;
+  height:80rpx;
+  margin-top:4rpx;
+  margin-left:40rpx;
+}
+.recordbuttonArea-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:25rpx;
+  margin-left:30rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.playRecordbuttonArea{
+  width:300rpx;
+  height:100rpx;
+  margin-top:150rpx;
+  margin-left:170rpx;
+  /* background-color: rgba(204, 189, 189, 0.089); */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.playRecordbuttonArea-icon{
+  width:80rpx;
+  height:80rpx;
+  margin-top:10rpx;
+  margin-left:40rpx;
+}
+.playRecordbuttonArea-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:25rpx;
+  margin-left:30rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.completeButton{
+  display:flex;
+  margin-left:0rpx;
+  margin-bottom:0rpx;
+  height:135rpx;
+  /* width:750rpx; */
+  background-color:rgb(10, 196, 87);
+  /* justify-content: center; */
+}
+.completeButton-des{
+  height:100rpx;
+  width:150rpx;
+  margin-left:300rpx;
+  margin-top:30rpx;
+  font-size: 45rpx;
+  color:white;
+  /* background-color: rgb(255, 172, 47); */
+}

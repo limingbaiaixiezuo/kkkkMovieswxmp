@@ -1,0 +1,182 @@
+/* pages/filmReviewPreview/filmReviewPreview.wxss */
+.titleArea{
+  display:flex;
+  /* background-color: red; */
+  width:750rpx;
+  height:130rpx;
+  /* opacity: 0.85; */
+}
+.title{
+  margin-left:180rpx;
+  margin-top:50rpx;
+  font-size: 50rpx;
+  font-weight: 550;
+}
+.backHome{
+  width:45rpx;
+  height:45rpx;
+  margin-left:20rpx;
+  margin-top:60rpx;
+  
+}
+.displayArea{
+  background-color: rgb(245, 245, 245);
+  height:1204rpx;
+  width:750rpx;
+  display:flex;
+}
+
+.filmDetailsIconAndTitleAndDescription{
+  background-color: white;
+  width:650rpx;
+  height:1040rpx;
+  margin-top:120rpx;
+  margin-left:50rpx;
+  border: 1px solid rgba(238, 232, 232,1);
+  display:block;
+}
+.filmDetailsImage{
+  width:250rpx;
+  height:338rpx;
+  margin-left:200rpx;
+  margin-top:-70rpx;
+
+}
+.filmDetailsTitle{
+  width:450rpx;
+  margin-top:50rpx;
+  margin-left:90rpx;
+  font-size: 45rpx;
+  font-weight: 500;
+}
+.filmReviewDetailsIconAndTitle{
+     display:flex;
+     /* background-color: red; */
+}
+.filmReviewDetailsIcon{
+  width:100rpx;
+  height:100rpx;
+  margin-left:40rpx;
+  margin-top:20rpx;
+  border-radius: 50%;
+} 
+.filmReviewDetailsName{
+  width:300rpx;
+  height:50rpx;
+  margin-top:50rpx;
+  margin-left:-20rpx;
+  font-size: 40rpx;
+  /* color:rgb(84, 96, 100); */
+  font-weight: 450;
+  color:rgb(91, 132, 145);
+  /* background-color: yellow; */
+}
+.filmReviewDetailsContent{
+  margin-top:20rpx;
+  margin-left:100rpx;
+  height:５0rpx;
+  width:400rpx;
+  font-size:35rpx;
+  opacity: 0.85;
+  font-weight: 400;
+   /* background-color: red; */
+  /* background-color: red; */
+  
+}
+.filmReviewListContent{
+  width:450rpx;
+  margin-top:50rpx;
+  margin-left:100rpx;
+  font-size:35rpx;
+  opacity: 0.85;
+  font-weight: 400;
+}
+.filmReviewVoicePreview{
+  margin-top:120rpx;
+  margin-left:60rpx;
+  height:100rpx;
+  width:500rpx;
+  /* font-size:35rpx; */
+  /* opacity: 0.85; */
+  /* font-weight: 400; */
+  /* background-color: red; */
+}
+.playRecordbuttonArea{
+  width:350rpx;
+  height:100rpx;
+  margin-top:100rpx;
+  margin-left:80rpx;
+  /* background-color:yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.playRecordbuttonArea-icon{
+  width:80rpx;
+  height:80rpx;
+  margin-top:10rpx;
+  margin-left:40rpx;
+}
+.playRecordbuttonArea-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:25rpx;
+  margin-left:30rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.buttonArea{
+  /* background-color: red; */
+  width:560rpx;
+  height:150rpx;
+  margin-left:40rpx;
+  margin-top:50rpx;
+  display:flex;
+  position:absolute;
+  bottom:30rpx;
+}
+.buttonArea-left{
+  width:250rpx;
+  height:80rpx;
+  margin-top:30rpx;
+  margin-left:0rpx;
+  /* background-color: yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.buttonArea-left-icon{
+  width:80rpx;
+  height:80rpx;
+  margin-top:0rpx;
+  margin-left:20rpx;
+}
+.buttonArea-left-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:15rpx;
+  margin-left:0rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.buttonArea-right{
+  width:250rpx;
+  height:80rpx;
+  margin-top:30rpx;
+  margin-left:40rpx;
+  /* background-color: yellow; */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.buttonArea-right-icon{
+  width:80rpx;
+  height:80rpx;
+  margin-top:2rpx;
+  margin-left:20rpx;
+}
+.buttonArea-right-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:15rpx;
+  /* margin-left:10rpx; */
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}

@@ -1,0 +1,199 @@
+/* pages/user/user.wxss */
+.area{
+  display:block;
+}
+.titleArea{
+  display:flex;
+  /* background-color: red; */
+  width:750rpx;
+  height:130rpx;
+  /* opacity: 0.85; */
+}
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:230rpx;
+  margin-top:50rpx;
+  font-size: 50rpx;
+  font-weight: 550;
+}
+.backHome{
+  width:45rpx;
+  height:45rpx;
+  margin-left:20rpx;
+  margin-top:60rpx;
+  
+}
+.user-card {
+  height:120rpx;
+  width:120rpx;
+  border-radius:50%;
+  top:110rpx;
+  left:20rpx;
+  position: absolute;
+  margin: 50rpx 27rpx 0;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  /* border-radius: 13rpx; */
+}
+
+ .user-info {
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+}
+
+ .user-head {
+  flex-shrink: 0;
+  left: 9rpx;
+  top:17rpx;
+  position: absolute;
+  height: 100rpx;
+  width: 100rpx;
+  background: #F5E069;
+  border-radius: 50%;
+}
+
+ .user-name {
+  flex: 1;
+  margin: 0 31rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.displayArea{
+  background-color: rgb(245, 245, 245);
+  height:1209rpx;
+  width:750rpx;
+  display:block;
+  border: 1px solid rgba(238, 238, 238,1);
+}
+.unloginDisplayArea{
+  background-color: rgb(245, 245, 245);
+  height:750rpx;
+  width:750rpx;
+  display:block;
+  border: 1px solid rgba(238, 238, 238,1);
+}
+.collect-des{
+  height:100rpx;
+  display:flex;
+  margin-top:70rpx;
+  margin-left:250rpx;
+}
+.collect-des-word{
+  /* width:290rpx; */
+  height:30rpx;
+  font-size: 40rpx;
+  color:rgb(241, 141, 18);
+
+}
+.collect-des-icon{
+  width:50rpx;
+  height:50rpx;
+  margin-left:0rpx;
+}
+.collectMoviesListArea{
+  margin-top:70rpx;
+  height:840rpx;
+  width:750rpx;
+  display:block;
+  
+}
+.collectMoviesList{
+ display:flex;
+ width:650rpx;
+ margin-left:50rpx;
+ height:385rpx;
+ margin-bottom:80rpx;
+ margin-top:30rpx;
+ z-index: -1;
+ background-color:white;
+ /* height:328rpx; */
+ border: 1px solid rgba(238, 232, 232, 0.9);
+}
+.collectMoviesImage{
+  width:250rpx;
+  height:385rpx;
+} 
+  
+.collectMoviesInfo{
+  margin-left:40rpx;
+}
+.collectMoviesTitle{
+  width:350rpx;
+  height:60rpx;
+  margin-top:20rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+.collectMoviesReview{
+  margin-top:50rpx;
+  width:350rpx;
+  height:150rpx;
+  /* background: red; */
+  font-size:35rpx;
+  opacity: 0.85;
+  font-weight: 400;
+  
+}
+.playRecordbuttonArea{
+  width:330rpx;
+  height:80rpx;
+  margin-top:65rpx;
+  margin-left:0rpx;
+  /* background-color:rgba(29, 206, 206, 0.185); */
+  display:flex;
+  border: 1px solid rgba(238, 232, 232,1);
+}
+.playRecordbuttonArea-icon{
+  width:60rpx;
+  height:60rpx;
+  margin-top:10rpx;
+  margin-left:40rpx;
+}
+.playRecordbuttonArea-des{
+  width:140rpx;
+  height:40rpx;
+  margin-top:25rpx;
+  margin-left:30rpx;
+  font-size:35rpx;
+  color:rgb(91, 132, 145);
+}
+.collectMoviesReviewInfo{
+  display:flex;
+}
+.collectMoviesReviewIcon{
+  width:60rpx;
+  height:60rpx;
+  margin-left:0rpx;
+  margin-top:25rpx;
+  border-radius: 50%;
+}
+.collectMoviesReviewName{
+  margin-left:15rpx;
+  margin-top:28rpx;
+  color:rgb(42, 60, 66);
+}
+.returnHome{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  bottom:0rpx;
+  height:100rpx;
+  font-size:50rpx;
+  font-weight: 400;
+  z-index: 1;
+  width:750rpx;
+background-color:white;
+}
+.returnHome-syle{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  color:rgb(91, 132, 145);
+}
