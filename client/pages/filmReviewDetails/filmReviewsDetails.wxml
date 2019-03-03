@@ -1,6 +1,5 @@
 <!--pages/filmReviewDetails/filmReviewsDetails.wxml-->
 <view class="area">
-<!-- <view class="writeReviewTopArea" wx:if="{{isWriteFilmReview}}"> -->
 <view class="titleArea">
     <image class='backHome' src="/images/back.png" catchtap='onTapBack'></image>
     <view class="title">影评详情</view>
@@ -18,7 +17,7 @@
         <view class= 'filmReviewDetailsContent' wx:if="{{filmReviewDetails.voiceReview}}">
             <view class="playRecordbuttonArea">
                 <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview"></image>
-                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+                <view class='playRecordbuttonArea-des' >{{filmReviewDetails.timeOfVoiceReview}}S</view>
             </view>
         </view>
         <view class="buttonArea">
@@ -40,9 +39,3 @@
     </view>
 </view>
 </view>
-<!-- <view class="writeReviewBottomArea" wx:if="{{isWriteFilmReview}}">
-  <view class="word-btn">文字</view>
-  <view class="record-btn">音频</view>
-  <view class="cancel-btn">取消</view>
-</view>  -->
-<!-- </view> -->

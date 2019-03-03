@@ -10,6 +10,7 @@ Page({
   data: {
     getRandomPopularMovie:"",
     randomFilmReviewDetails:"",
+    filmReviewList:[],
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
   },
@@ -18,10 +19,23 @@ Page({
    */
   onLoad: function (options) {
     this.getRandomPopularMovie()
+    this.getReviewList()
   },
   getReviewInfo() {//获取主页随机推荐的热门电影对应的随机的影评数据函数
     let id = this.data.getRandomPopularMovie.id
-    this.getDetailsReview(id)//下载特定电影ID的影评
+    let reviewList = this.data.filmReviewList || null
+    let items = []
+    if (reviewList){
+    reviewList.forEach(function (cv) {//筛选出的与收藏数据关联的电影数据
+      if (cv.id == id) {
+        items.push(cv)
+      }
+    })
+    let item = items[Math.floor(Math.random() * items.length)] || null;
+    this.setData({
+      randomFilmReviewDetails: item
+    })
+    }
   },
   getRandomPopularMovie(callback) {
     wx.showLoading({
@@ -30,20 +44,20 @@ Page({
     qcloud.request({
       url: config.service.movieList,
       success: result => {
-        // console.log(result)
         wx.hideLoading()
         if (!result.data.code) {
-          // console.log(result.data.data,"数据返回")
           let items = result.data.data
           // 随机获取数组中的元素(by stackoverflow)
           let item = items[Math.floor(Math.random() * items.length)];
-          // console.log(item)
+          if (item){
           this.setData({
             getRandomPopularMovie: item
           })
+          }
             callback && callback()
-          this.getReviewInfo()//电影随机推荐成功后调用对应的随机推荐的影评函数
-          // console.log(this.data.getRandomPopularMovie)
+          setTimeout(() => {
+           this.getReviewInfo()//电影随机推荐成功后调用对应的随机推荐的影评函数
+          }, 500)
         } else {
           wx.showToast({
             icon: 'none',
@@ -53,7 +67,6 @@ Page({
       },
       fail: result => {
         wx.hideLoading()
-        // console.log(result)
         wx.showToast({
           icon: 'none',
           title: '电影数据加载失败',
@@ -61,19 +74,16 @@ Page({
       }
     })
   },
-  getDetailsReview(arg) {//获取特定影评函数
+  getReviewList() {//获取特定影评函数
     qcloud.request({
-      url: config.service.reviewDetail + arg,
+      url: config.service.reviewList,
       success: result => {
         let data = result.data
-        console.log("影评详情数据", data.data)
         if (!data.code) {
           let items = data.data
-          let item = items[Math.floor(Math.random() * items.length)];
           this.setData({
-            randomFilmReviewDetails: item
+            filmReviewList:items
           })
-          console.log("影评详情信息", this.data.randomFilmReviewDetails)
         } else {
           wx.showToast({
             icon: 'none',
@@ -82,7 +92,6 @@ Page({
         }
       },
       fail: result => {
-        console.log(result, '影评列表数 据加载失败')
         wx.showToast({
           icon: 'none',
           title: '影评列表数 据加载失败',
@@ -94,6 +103,23 @@ Page({
     let moviesInfo = this.data.getRandomPopularMovie
     wx.navigateTo({
       url: `/pages/filmDetails/filmDetails?id=${moviesInfo.id}&description=${moviesInfo.description}&title=${moviesInfo.title}&image=${moviesInfo.image}`
+    })
+  },
+  onTapToReviewDetails(evt) {//跳转到影评详情页面
+    console.log("wqwqwwq点击的影评", evt.currentTarget.id)
+    let id
+    let review_id
+    let reviewArray = this.data.filmReviewList
+    reviewArray.forEach(function (cv) {
+      if (cv.review_id == evt.currentTarget.id) {
+        id = cv.id
+        review_id = cv.review_id
+        return id, review_id;
+      }
+      return;
+    })
+    wx.navigateTo({
+      url: `/pages/filmReviewDetails/filmReviewsDetails?id=${id}&review_id=${review_id}`
     })
   },
   onTapLogin: function () {

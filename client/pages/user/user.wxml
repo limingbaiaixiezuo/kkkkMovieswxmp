@@ -5,7 +5,6 @@
     <view class="title">我的</view>
 </view> 
 <view class="loginArea" wx:if="{{!userInfo}}">
-<!-- <image class="bg" src="/images/bg.png"></image> -->
 <view >
     <view class="unlogin-card">
         <view class="unlogin-head"></view>
@@ -45,7 +44,7 @@
            <view class= 'collectMoviesReview' wx:if="{{item.voiceReview}}">
                <view class="playRecordbuttonArea">
                 <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" id="{{item.review_id}}"></image>
-                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+                <view class='playRecordbuttonArea-des' >{{item.timeOfVoiceReview}}S</view>
               </view>
            </view>
            <view class="collectMoviesReviewInfo" catchtap="onTapToReviewDetails" id="{{item.review_id}}">
@@ -64,7 +63,7 @@
            <view class= 'collectMoviesReview' wx:if="{{item.voiceReview}}">
                <view class="playRecordbuttonArea">
                 <image class='playRecordbuttonArea-icon' src="/images/playvoicereview.png" catchtouchstart="onTapPlayVoiceReview" catchtouchend="onStopPlayVoiceReview" id="{{item.review_id}}"></image>
-                <view class='playRecordbuttonArea-des' >{{timeOfVoiceReview}}S</view>
+                <view class='playRecordbuttonArea-des' >{{item.timeOfVoiceReview}}S</view>
               </view>
            </view>
            <view class="collectMoviesReviewInfo" catchtap="onTapToReviewDetails" id="{{item.review_id}}">

@@ -33,9 +33,7 @@
  height:338rpx;
  margin-bottom: 50rpx;
  margin-top:50rpx;
-
  background-color:white;
- /* height:328rpx; */
  border: 1px solid rgba(238, 232, 232, 0.9);
 }
 .popularMoviesImage{

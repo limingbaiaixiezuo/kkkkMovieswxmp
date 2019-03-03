@@ -10,7 +10,7 @@
         <cover-image class="editFilmReviewImage" src="{{wasEditedFilmReviewFilmImage}}"></cover-image>
         <view class= 'editFilmReviewTitle'>{{wasEditedFilmReviewFilmTitle}}</view>
         <view class="editReviewArea-word" wx:if="{{whatKindEdit=='word'}}">
-          <textarea class='comment' placeholder-class='comment-placeholder' placeholder='请输入你的影评内容...' auto-focus maxlength='255' bindinput='onInput'></textarea>
+          <textarea class='comment' placeholder-class='comment-placeholder' placeholder='请输入你的影评内容...' auto-focus maxlength='300' bindinput='onInput'></textarea>
         </view>
           <view class="recordbuttonArea" wx:if="{{whatKindEdit=='record'&&!voiceFilmReview}}" catchtouchstart="onTouchStartRecord" catchtouchend="onTouchStopRecord">
             <image class='recordbuttonArea-icon' src="/images/mic.png"></image>

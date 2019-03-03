@@ -27,35 +27,38 @@ Page({
     })
     console.log("options", options)
     this.getReviewList()
-    // this.filterReview()
-    
+  },
+  getTimeofVoiceReviewAndTrimContent() {//获取语音影评时长函数和修剪文字影评
+    let timeOfVoiceReview
+    let trimContent
+    this.data.thisFilmReviewList.forEach(function (cv) {//有语音的对象中增加时间项
+      if(cv.content){
+        trimContent = cv.content.slice(0,14)
+        cv.content = trimContent
+      }
+    })
+    this.setData({
+      thisFilmReviewList: this.data.thisFilmReviewList
+    })
   },
   filterReview(){//根据影片ID过滤全部的影评数据
     let filmReviewList = this.data.filmReviewList
     let thisFilmId = this.data.thisFilmId
-    // let thisFilmReviewList = this.data.thisFilmReviewList
     let filterReviewArray = []
     filmReviewList.forEach(function (cv) {//遍历影评数据，找出电影的所有影评
       if (cv.id == thisFilmId) {
         filterReviewArray.push(cv)
       }
     })
-    // filterReviewArray.forEach(function (cv) {//遍历过滤后的影评数据，找出语音影评，提取时间
-    //   if (cv.id == thisFilmId) {
-    //     filterReviewArray.push(cv)
-    //   }
-    // })
-    console.log("筛选过的", filterReviewArray)
-    // console.log("语音", filterReviewArray[1].voiceReview)
     this.setData({
       thisFilmReviewList: filterReviewArray
     })
+    this.getTimeofVoiceReviewAndTrimContent()
   },
   onTapBack() {
     wx.navigateBack()
   },
   onTapBackToHome() {
-    // let moviesInfo = this.data.getRandomPopularMovie
     wx.navigateTo({
       url: "/pages/homePage/homePage",
       fail: (res) => {
@@ -74,12 +77,12 @@ Page({
 
         let data = result.data
         console.log("qcloud成功之后返回的列表数据",data.data)
-        if (!data.code) {
+        if (!data.code && data.data) {
           this.setData({
             filmReviewList: data.data
             })
           callback && callback()
-          this.filterReview()//全部影评数据下载成功之后再筛选
+          this.filterReview()//全部影评数据下载成功且有影评之后再筛选
       } else {
         wx.showToast({
           icon: 'none',
@@ -88,7 +91,6 @@ Page({
       }
     },
       fail: result => {
-        // console.log(result)
         wx.hideLoading()
         console.log(result, '影评列表数 据加载失败')
         wx.showToast({
@@ -99,40 +101,23 @@ Page({
     })
   },
   onTapPlayVoiceReview(evt) {//根据点击事件传递的数据播放相应的语音的函数
-    // innerAudioContext.autoplay = true
-    // innerAudioContext.loop = true
-    console.log("影评列表被点击的影评", evt.currentTarget.id)
-    // innerAudioContext.src = ""
     let innerAudio
     let audioContext = this.data.filmReviewList
-    console.log("影评列表", audioContext)
-    // for (let index = 0; index < audioContext.length;index++){
-    //   if (audioContext[index].review_id == evt.currentTarget.id){
-    //     innerAudio = audioContext[index].voiceReview
-    //     console.log("匹配到", innerAudio)
-    //   }
-    //   return;
-    // }
     audioContext.forEach(function (cv) {
        if(cv.review_id == evt.currentTarget.id){
-         console.log("影评TEST列表", cv.review_id, evt.currentTarget.id)
          innerAudio = cv.voiceReview
-         return innerAudio;
        }
-      return;
     })
-    console.log("被点击的语音", innerAudio)
     innerAudioContext.src = innerAudio
     innerAudioContext.onPlay(() => {
       wx.showLoading({
         title: '语音播放中...',
       })
-      console.log('开始播放', innerAudioContext.src)
     })
     innerAudioContext.onError((res) => {
       wx.showToast({
         icon: 'none',
-        title: '录音失败'
+        title: '语音播放失败'
       })
       console.log(res.errMsg)
       console.log(res.errCode)
@@ -142,40 +127,23 @@ Page({
   onStopPlayVoiceReview() {
     innerAudioContext.stop()
     wx.hideLoading()
-    console.log('停止播放')
     wx.showToast({
       title: '播放结束',
     })
   },
   onTapToReviewDetails(evt){//跳转到影评详情页面
-    console.log("wqwqwwq点击的影评", evt.currentTarget.id)
-
-    // let avatar
-    // let content
     let id
     let review_id
-    // let user
-    // let username
-    // let voiceReview
-    // let whatKindEdit = this.data.whatKindEdit
-    // let timeOfVoiceReview = this.data.timeOfAudio
     let reviewArray = this.data.filmReviewList
     console.log("影评列表", reviewArray)
     reviewArray.forEach(function (cv) {
       if (cv.review_id == evt.currentTarget.id) {
-        console.log("影评TEST列表", cv.review_id, evt.currentTarget.id)
-        // avatar = cv.avatar
-        // content = cv.content
         id = cv.id
         review_id = cv.review_id
-        // user = cv.user
-        // username = cv.username
-        // voiceReview = cv.voiceReview
         return id, review_id;
       }
       return;
     })
-    console.log("TEST",id, review_id)
     wx.navigateTo({
       url: `/pages/filmReviewDetails/filmReviewsDetails?id=${id}&review_id=${review_id}`
     })
@@ -184,22 +152,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // console.log("２２２data", this.data.filmReviewList)
-    //  setTimeout(() => {
-    //    this.getReviewList()
-    //         }, 3000)
-    // this.getReviewList()
-    // console.log(121212)
-    // console.log("返回的影评列表数据", this.data.filmReviewList)
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.filterReview()
-    // console.log(121212)
-    // console.log("３３３data", this.data.filmReviewList)
+   
   },
 
   /**

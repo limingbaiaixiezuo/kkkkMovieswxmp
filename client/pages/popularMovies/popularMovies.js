@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // popularMoviesList: app.data.popularMoviesList,
     popularMoviesList:[],
   },
 
@@ -16,13 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // app.getPopularMoviesList()
     this.getPopularMoviesList()
   },
   onTapBackHome() {
     wx.navigateBack()
   },
-  getPopularMoviesList() {
+  getPopularMoviesList(callback) {
     wx.showLoading({
       title: '电影数据加载...',
     })
@@ -31,18 +29,16 @@ Page({
       success: result => {
         wx.hideLoading()
         if (!result.data.code) {
-          // console.log(result.data)
           this.setData({
             popularMoviesList: result.data.data
           })
-          // console.log(this.data.popularMoviesList)
+          callback && callback()
         } else {
           wx.showToast({
             icon: 'none',
             title: '电影数据加载失败',
           })
         }
-
       },
       fail: result => {
         wx.hideLoading()
@@ -57,10 +53,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
 
-
-
-
-  
   onReady: function () {
     console.log("热门电影页面的", this.data.popularMoviesList)
   },
@@ -90,7 +82,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getPopularMoviesList()
+    this.getPopularMoviesList(() => {
+      wx.stopPullDownRefresh()
+    })
+    
   },
 
   /**

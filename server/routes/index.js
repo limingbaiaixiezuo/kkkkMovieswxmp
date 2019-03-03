@@ -47,16 +47,13 @@ router.get('/reviews', controllers.review.reviewList)
 // 获取特定review_id的影评
 router.get('/reviews/:review_id', controllers.review.reviewDetail)
 
-// 获取特定id的影评
-// router.get('/reviews/:id', controllers.review.reviewDetail2)
+//获取特定影片id的影评
+router.get('/reviews/:id', controllers.review.thisReviewList)
 
 // 收藏影评
 router.put('/collect', validationMiddleware, controllers.collect.addCollect)
 
 // 获取所有收藏的影评数据
 router.get('/collect', controllers.collect.collectReviewList)
-
-// // 获取特定review_id的评论
-// router.get('/collect/:user', controllers.collect.userCollectReview)
 
 module.exports = router

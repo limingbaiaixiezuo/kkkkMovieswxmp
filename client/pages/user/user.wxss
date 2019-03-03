@@ -4,10 +4,8 @@
 }
 .titleArea{
   display:flex;
-  /* background-color: red; */
   width:750rpx;
   height:130rpx;
-  /* opacity: 0.85; */
 }
 .title{
   display: flex;
@@ -35,15 +33,12 @@
   margin: 50rpx 27rpx 0;
   background: #FFFFFF;
   box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
-  /* border-radius: 13rpx; */
 }
-
  .user-info {
   display: flex;
   align-items: center;
   height: 200rpx;
 }
-
  .user-head {
   flex-shrink: 0;
   left: 9rpx;
@@ -84,7 +79,6 @@
   margin-left:250rpx;
 }
 .collect-des-word{
-  /* width:290rpx; */
   height:30rpx;
   font-size: 40rpx;
   color:rgb(241, 141, 18);
@@ -103,16 +97,15 @@
   
 }
 .collectMoviesList{
- display:flex;
- width:650rpx;
- margin-left:50rpx;
- height:385rpx;
- margin-bottom:80rpx;
- margin-top:30rpx;
- z-index: -1;
- background-color:white;
- /* height:328rpx; */
- border: 1px solid rgba(238, 232, 232, 0.9);
+  display:flex;
+  width:650rpx;
+  margin-left:50rpx;
+  height:385rpx;
+  margin-bottom:80rpx;
+  margin-top:30rpx;
+  z-index: -1;
+  background-color:white;
+  border: 1px solid rgba(238, 232, 232, 0.9);
 }
 .collectMoviesImage{
   width:250rpx;
@@ -133,18 +126,15 @@
   margin-top:50rpx;
   width:350rpx;
   height:150rpx;
-  /* background: red; */
   font-size:35rpx;
   opacity: 0.85;
   font-weight: 400;
-  
 }
 .playRecordbuttonArea{
   width:330rpx;
   height:80rpx;
   margin-top:65rpx;
   margin-left:0rpx;
-  /* background-color:rgba(29, 206, 206, 0.185); */
   display:flex;
   border: 1px solid rgba(238, 232, 232,1);
 }

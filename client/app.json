@@ -7,7 +7,6 @@
     "pages/filmReviewDetails/filmReviewsDetails",
     "pages/editFilmReview/editFilmReview",
     "pages/filmReviewPreview/filmReviewPreview",
-    "pages/reviewActionPage/reviewActionPage",
     "pages/user/user",
     "custom-tab-bar/index"
   ],

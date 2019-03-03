@@ -14,12 +14,10 @@ module.exports = {
     let content = ctx.request.body.content || null
     let id = ctx.request.body.id
     let voiceReview = ctx.request.body.voiceReview || null
-    // images = images.join(';;')
-    // let testId = review_id
+    let timeOfVoiceReview = ctx.request.body.timeOfVoiceReview || null
     
     if (!isNaN(review_id)) {
-    // if (true) {
-      await DB.query('INSERT INTO review(id, user, username, avatar, content, voiceReview, review_id) VALUES (?, ?, ?, ?, ?, ?, ?)', [id, user, username, avatar, content, voiceReview, review_id])
+      await DB.query('INSERT INTO review(id, user, username, avatar, content, voiceReview,timeOfVoiceReview, review_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [id, user, username, avatar, content, voiceReview, timeOfVoiceReview, review_id])
     }
 
     ctx.state.data = {}
@@ -37,8 +35,8 @@ module.exports = {
     ctx.state.data = await DB.query('SELECT * FROM review WHERE review.review_id=?', [reviewId])
   },
   // 根据特定id获取相应影评数据
-  // reviewDetail2: async ctx => {
-  //   id = +ctx.params.id
-  //   ctx.state.data = await DB.query('SELECT * FROM review WHERE review.id=?', [id])
-  // }
+  thisReviewList: async ctx => {
+    id = +ctx.params.id
+    ctx.state.data = await DB.query('SELECT * FROM review WHERE review.id=?', [id])
+  }
 } 

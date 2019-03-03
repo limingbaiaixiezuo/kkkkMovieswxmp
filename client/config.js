@@ -39,7 +39,7 @@ var config = {
         reviewDetail: `${host}/weapp/reviews/`,
 
         // 拉取影评详情by id
-        // reviewDetail2: `${host}/weapp/reviews/`,
+        thisReviewList: `${host}/weapp/reviews/`,
 
       　// 添加影评
       　addReview: `${host}/weapp/review`,

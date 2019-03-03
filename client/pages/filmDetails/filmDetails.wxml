@@ -15,9 +15,13 @@
             <image class='buttonArea-left-icon' src="/images/eye.png"></image>
             <view class='buttonArea-left-des' >查看影评</view>
           </view>
-          <view class="buttonArea-right" bindtap='onTapToAddFilmReview'>
+          <view class="buttonArea-right" bindtap='onTapToAddFilmReview' wx:if="{{!wasWriteFilmReview}}">
             <image class='buttonArea-right-icon' src="/images/chat.png"></image>
             <view class='buttonArea-right-des' >添加影评</view>
+          </view>
+          <view class="buttonArea-right" bindtap='onTapToReviewDetails' wx:if="{{wasWriteFilmReview}}">
+            <image class='buttonArea-right-icon' src="/images/chat.png"></image>
+            <view class='buttonArea-right-des'>我的影评</view>
           </view>
         </view>
     </view>

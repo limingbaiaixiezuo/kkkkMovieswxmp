@@ -1,17 +1,7 @@
 //app.js
-// var qcloud = require('./vendor/wafer2-client-sdk/index')
-// var config = require('./config')
-
-// App({
-//     onLaunch: function () {
-//         qcloud.setLoginUrl(config.service.loginUrl)
-//     }
-// })
-//app.js
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 let userInfo
-
 const UNPROMPTED = 0
 const UNAUTHORIZED = 1
 const AUTHORIZED = 2
@@ -22,83 +12,11 @@ App({
 
   data: {
     locationAuthType: UNPROMPTED,
-    popularMoviesList:[],
-    filmReviewList:[],
-  },
-  getReviewList(callback) {
-    wx.showLoading({
-      title: '下载影评列表数据中...',
-    })
-    qcloud.request({
-      url: config.service.reviewList,
-      success: result => {
-        wx.hideLoading()
-
-        let data = result.data
-        console.log("qcloud成功之后返回的列表数据", data.data)
-        if (!data.code) {
-          // this.setData({
-          //   filmReviewList: data.data
-          // })
-          this.data.filmReviewList = data.data
-          callback && callback()
-          this.filterReview()//全部影评数据下载成功之后再筛选
-        } else {
-          wx.showToast({
-            icon: 'none',
-            title: '影评列表数据加载失败',
-          })
-        }
-      },
-      fail: result => {
-        // console.log(result)
-        wx.hideLoading()
-        console.log(result, '影评列表数 据加载失败')
-        wx.showToast({
-          icon: 'none',
-          title: '影评列表数 据加载失败',
-        })
-      }
-    })
-  },
-  getPopularMoviesList(callback) {
-    wx.showLoading({
-      title: '电影数据加载...',
-    })
-    qcloud.request({
-      url: config.service.movieList,
-      success: result => {
-        wx.hideLoading()
-        if (!result.data.code) {
-          // console.log(result.data)
-          // this.setData({
-          //   popularMoviesList: result.data.data
-          // })
-          this.data.popularMoviesList = result.data.data
-          callback && callback()
-          console.log("APP页面的",this.data.popularMoviesList)
-        } else {
-          wx.showToast({
-            icon: 'none',
-            title: '电影数据加载失败',
-          })
-        }
-
-      },
-      fail: result => {
-        wx.hideLoading()
-        wx.showToast({
-          icon: 'none',
-          title: '电影数据加载失败',
-        })
-      }
-    })
   },
   login({ success, error }) {
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo'] === false) {
-
           this.data.locationAuthType = UNAUTHORIZED
           // 已拒绝授权
           wx.showModal({
@@ -141,16 +59,13 @@ App({
 
   getUserInfo({ success, error }) {
     if (userInfo) return userInfo
-
     qcloud.request({
       url: config.service.user,
       login: true,
       success: result => {
         let data = result.data
-
         if (!data.code) {
           let userInfo = data.data
-
           success && success({
             userInfo
           })

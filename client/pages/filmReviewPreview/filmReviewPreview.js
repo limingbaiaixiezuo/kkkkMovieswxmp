@@ -3,9 +3,7 @@ const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 const recorderManager = wx.getRecorderManager()//调用录音借口函数
 const innerAudioContext = wx.createInnerAudioContext()//调用播放语音借口函数
-// const _ = require('../../utils/util')
 const app = getApp()
-// let filmReviewCount = 0
 Page({
 
   /**
@@ -23,16 +21,13 @@ Page({
         reviewPreviewUserVoiceComment: '',
         filmReviewId:"",
         timeOfVoiceReview:0,
-        
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-         console.log("影评预览",options)
-    let audioFile = decodeURIComponent(options.voiceFilmReview)//decodeURI() 函数可对 encodeURI() 函数编码过的 URI 进行解码。
-    console.log("decodeURIComponent之后", audioFile)
+    let audioFile = decodeURIComponent(options.voiceFilmReview)//decodeURIComponent() 函数可对 encodeURIComponent() 函数编码过的 URI 进行解码。
     this.setData({
       reviewPreviewFirmImage: options.filmImage,
       reviewPreviewFirmTitle: options.filmTitle,
@@ -44,11 +39,8 @@ Page({
     })
   },
   onTapPlayVoiceReview() {//语音播放函数
-    // innerAudioContext.autoplay = true
-    // innerAudioContext.loop = true
     innerAudioContext.src = this.data.reviewPreviewUserVoiceComment
     innerAudioContext.onPlay(() => {
-      console.log('开始播放', this.data.reviewPreviewUserVoiceComment)
     })
     innerAudioContext.onError((res) => {
       wx.showToast({
@@ -62,17 +54,20 @@ Page({
   },
   onStopPlayVoiceReview() {
     innerAudioContext.stop()
-    console.log('停止播放')
     wx.showToast({
       title: '播放结束',
     })
   },
   onTapBack() {
-    // filmReviewCount--
     wx.navigateBack()
   },
   onTapPubllishReview(){//发布影评函数，调用上传影评函数
-    this.doQcloudUploadComment()
+    let voiceReview = this.data.reviewPreviewUserVoiceComment
+    if (!voiceReview){
+      this.doQcloudUploadComment()
+    }else{
+    this.uploadVoiceReview()
+    }
   },
   navigateToReviewList(){//负责跳转到评论列表的函数，影评上传成功才被调用
     let filmReviewId = this.data.filmReviewId
@@ -84,30 +79,25 @@ Page({
     let reviewPreviewUserWordComment = this.data.reviewPreviewUserWordComment
     let reviewPreviewUserVoiceComment = this.data.reviewPreviewUserVoiceComment
     let whatKindReview = this.data.whatKindReview
-    let timeOfVoiceReview = this.data.timeOfVoiceReview
-    // setTimeout(() => {
       wx.navigateTo({
-        url: `/pages/filmReviewList/filmReviewList?id=${id}&filmTitle=${reviewPreviewFirmTitle}&filmImage=${reviewPreviewFirmImage}&wordFilmReview=${reviewPreviewUserWordComment}&voiceFilmReview=${reviewPreviewUserVoiceComment}&userIcon=${reviewPreviewUserIcon}&userName=${reviewPreviewUserName}&filmReviewId=${filmReviewId}&whatKindReview=${whatKindReview}&timeOfVoiceReview=${timeOfVoiceReview}`
+        url: `/pages/filmReviewList/filmReviewList?id=${id}&filmTitle=${reviewPreviewFirmTitle}&filmImage=${reviewPreviewFirmImage}&wordFilmReview=${reviewPreviewUserWordComment}&voiceFilmReview=${reviewPreviewUserVoiceComment}&userIcon=${reviewPreviewUserIcon}&userName=${reviewPreviewUserName}&filmReviewId=${filmReviewId}&whatKindReview=${whatKindReview}`
       })
-    // }, 2000)
   },
-  doQcloudUploadComment(){
+  doQcloudUploadComment(cb) {//注意！当我传入的两个参数「（cb,content）」互相污染了
     let content = this.data.reviewPreviewUserWordComment
-    let voiceReview = this.data.reviewPreviewUserVoiceComment
-    if (!content && !voiceReview) return
-
+    let timeOfVoiceReview = this.data.timeOfVoiceReview
+    let voiceReviewUrl = cb || null
     wx.showLoading({
-      title: '正在发布评论'
+      title: '正在发布影评'
     })
-
-    // this.uploadImage(images => {
       qcloud.request({
         url: config.service.addReview,
         login: true,
         method: 'PUT',
         data: {
           content: content,
-          voiceReview: voiceReview,
+          voiceReview: voiceReviewUrl,
+          timeOfVoiceReview: timeOfVoiceReview,
           id: this.data.reviewPreviewFirmId,
           review_id: this.data.filmReviewId
         },
@@ -122,7 +112,7 @@ Page({
             })
             setTimeout(() => {
               this.navigateToReviewList()
-            }, 1500)
+            }, 100)
 
           } else {
             wx.showToast({
@@ -143,38 +133,60 @@ Page({
     // }
     // )
   },
+  uploadVoiceReview() {//上传语音到腾讯云对象存储的函数
+  //准备传递到对象存储的语音数据(上传前编码，防止数据丢失)
+    let voiceReview = this.data.reviewPreviewUserVoiceComment
+    if (voiceReview.length) {
+      console.log("待上传语音", voiceReview)
+        wx.uploadFile({
+          url: config.service.uploadUrl,
+          filePath: voiceReview,
+          name: 'file',
+          success: res => {
+            let data = JSON.parse(res.data)
+            if (!data.code) {
+              wx.showToast({
+                icon: 'none',
+                title: '上传成功'
+              })
+              if (data.data.imgUrl){
+              //上传对象存储成功后，返回的对象存储的连接数据，直接作为回调函数的参数
+              this.doQcloudUploadComment(data.data.imgUrl)
+              }
+            }
+            setTimeout(() => {
+              this.navigateToReviewList()
+            }, 1500)
+          },
+          fail: (err) => {
+            wx.showToast({
+              icon: 'none',
+              title: '上传失败'
+            })
+            console.log("上传失败错误信息",err)
+          }
+        })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //每次点击完成按钮，改影片该账户的影评次数都加一，且作为影评唯一编码的一部分
-    console.log("已登录用户信息", this.data.userInfo)
-      // 获取当前时间戳
-    // let timestamp = Date.parse(new Date());
-    // timestamp = timestamp / 1000;
-    // let timestamp = new Date().valueOf();
     let filmReviewCount = Math.floor(33 * Math.random());
     let numstamp = Math.floor(this.data.reviewPreviewFirmId * Math.random())
-    // timestamp = (timestamp / 10000000).floor;
     console.log("随机生成码：" + numstamp); 
     this.setData({
       filmReviewId: this.data.reviewPreviewFirmId + numstamp + filmReviewCount,
-      // filmReviewId: this.data.reviewPreviewFirmId + filmReviewCount,
       reviewPreviewUserIcon: this.data.userInfo.avatarUrl,
       reviewPreviewUserName: this.data.userInfo.nickName
     })
     filmReviewCount = filmReviewCount + Math.floor(100* Math.random()) ;
-    console.log(filmReviewCount, this.data.filmReviewId)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 同步授权状态
-    // this.setData({
-    //   locationAuthType: app.data.locationAuthType
-    // })
     app.checkSession({
       success: ({ userInfo }) => {
         this.setData({

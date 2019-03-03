@@ -18,9 +18,12 @@
        <image class="filmPoster" src="{{getRandomPopularMovie.image}}"></image>
        <view class="filmName"><view class="filmName-des">{{getRandomPopularMovie.title}}</view></view>
     </view>
-    <view class="recommendInfo">
+    <view class="recommendInfo" wx:if="{{randomFilmReviewDetails.avatar}}" catchtap="onTapToReviewDetails" id="{{randomFilmReviewDetails.review_id}}">
         <image class="recommendInfo-headImage" src="{{randomFilmReviewDetails.avatar}}"></image>
         <view class="recommendInfo-name">"{{randomFilmReviewDetails.username}}"</view>
         <view class="recommendInfo-content">给你推荐了一部电影</view>
+    </view>
+    <view class="recommendInfo2"wx:if="{{!randomFilmReviewDetails.avatar}}">
+        <view class="recommendInfo-content２">该影片没有影评，无人推荐。</view>
     </view>
 </view>

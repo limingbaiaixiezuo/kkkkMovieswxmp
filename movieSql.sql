@@ -27,10 +27,12 @@ CREATE TABLE `review` (
   `avatar` varchar(255) DEFAULT NULL,
   `content` varchar(511) CHARACTER SET utf8 DEFAULT NULL COMMENT '文字影评',
   `voiceReview` varchar(1023) CHARACTER SET utf8 DEFAULT NULL COMMENT '语音影评',
+  `timeOfVoiceReview` int(11) DEFAULT NULL COMMENT '语音影评时长',
   `review_id` int(11) NOT NULL COMMENT '影评ID',
   PRIMARY KEY (`review_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- SET @VOICEREVIEW_BASE_URL = "https://moviereview-1258458885.cos.ap-beijing.myqcloud.com/"; -- FOR EXAMPLE: https://*****.ap-shanghai.myqcloud.com/
 
 --
 -- 表的结构 `movies`

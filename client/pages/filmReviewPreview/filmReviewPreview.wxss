@@ -1,7 +1,6 @@
 /* pages/filmReviewPreview/filmReviewPreview.wxss */
 .titleArea{
   display:flex;
-  /* background-color: red; */
   width:750rpx;
   height:130rpx;
   /* opacity: 0.85; */
@@ -50,8 +49,7 @@
   font-weight: 500;
 }
 .filmReviewDetailsIconAndTitle{
-     display:flex;
-     /* background-color: red; */
+  display:flex;
 }
 .filmReviewDetailsIcon{
   width:100rpx;
@@ -66,22 +64,18 @@
   margin-top:50rpx;
   margin-left:-20rpx;
   font-size: 40rpx;
-  /* color:rgb(84, 96, 100); */
   font-weight: 450;
   color:rgb(91, 132, 145);
-  /* background-color: yellow; */
 }
 .filmReviewDetailsContent{
   margin-top:20rpx;
   margin-left:100rpx;
-  height:５0rpx;
-  width:400rpx;
+  height:400rpx;
+  width:450rpx;
   font-size:35rpx;
   opacity: 0.85;
   font-weight: 400;
-   /* background-color: red; */
-  /* background-color: red; */
-  
+  overflow:auto;
 }
 .filmReviewListContent{
   width:450rpx;
@@ -96,17 +90,12 @@
   margin-left:60rpx;
   height:100rpx;
   width:500rpx;
-  /* font-size:35rpx; */
-  /* opacity: 0.85; */
-  /* font-weight: 400; */
-  /* background-color: red; */
 }
 .playRecordbuttonArea{
   width:350rpx;
   height:100rpx;
   margin-top:100rpx;
   margin-left:80rpx;
-  /* background-color:yellow; */
   display:flex;
   border: 1px solid rgba(238, 232, 232,1);
 }
@@ -125,7 +114,6 @@
   color:rgb(91, 132, 145);
 }
 .buttonArea{
-  /* background-color: red; */
   width:560rpx;
   height:150rpx;
   margin-left:40rpx;
@@ -139,7 +127,6 @@
   height:80rpx;
   margin-top:30rpx;
   margin-left:0rpx;
-  /* background-color: yellow; */
   display:flex;
   border: 1px solid rgba(238, 232, 232,1);
 }
@@ -162,7 +149,6 @@
   height:80rpx;
   margin-top:30rpx;
   margin-left:40rpx;
-  /* background-color: yellow; */
   display:flex;
   border: 1px solid rgba(238, 232, 232,1);
 }
@@ -176,7 +162,6 @@
   width:140rpx;
   height:40rpx;
   margin-top:15rpx;
-  /* margin-left:10rpx; */
   font-size:35rpx;
   color:rgb(91, 132, 145);
 }

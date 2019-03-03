@@ -35,9 +35,18 @@ const CONF = {
          */
         region: 'ap-beijing',
         // Bucket 名称
-        fileBucket: 'moviereview',
+        fileBucket: 'filmreviews',
         // 文件夹
-        uploadFolder: ''
+        uploadFolder: '',
+        maxSize: 20, //最大文件限制，单位M
+      /**
+       * 判断文件类型
+       * 为保证安全默认支持的文件类型有：
+       * 图片：jpg jpg2000 git bmp png
+       * 音频：mp3 m4a mp4
+       * 文件：pdf
+       */
+      mimetypes: ['audio/x-aac', 'audio/mpeg', 'video/webm', 'audio/mpeg', 'audio/mp3', 'audio/m4a']
     },
 
     // 微信登录态有效期
